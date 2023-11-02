@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sklep</title>
+</head>
+<body>
+    <header>
+        <%- include('./../partials/header.ejs') %>
+    </header>
+    <div class="page">
+        <% if(pageToRender == "main"){ %> <%- 
+        include('./../partials/shop.ejs') %> <% }if(pageToRender == "login"){ %>
+        <%- include('./../partials/login.ejs') %> <% }
+        if(pageToRender == "register"){ %> 
+        <%- include('./../partials/registration.ejs') %> <% } %>
+    </div>
+</body>
+</html>

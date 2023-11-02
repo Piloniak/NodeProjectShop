@@ -1,0 +1,28 @@
+<div class="registerBox">
+    <% if(msg != ""){ %>
+        <h2 class="authError"><%= msg %></h2>
+        <% } %>
+    <form action="/registration/auth" method="POST">
+        <label>Podaj nazwę użytkownika</label>
+        <input type="text" name="username">
+        <label>Podaj hasło użytkownika</label>
+        <input type="text" name="password">
+        <label>Podaj dane personalne</label>
+            <label>Imię</label>
+            <input type="text" name="firstname">
+            <label>Nazwisko</label>
+            <input type="text" name="lastname">
+            <label>Adres zamieszkania</label>
+                <label>Kod pocztowy</label>
+                <input type="text" name="zipcode">
+                <label>Miejscowość</label>
+                <input type="text" name="city">
+                <label>Numer domu/mieszkania</label>
+                <input type="text" name="homenumber">
+            <label>Adres E-mail</label>
+            <input type="email" name="email">
+            <label>Numer telefonu</label>
+            <input type="text" name="phonenumber">
+            <input type="submit">
+    </form>
+</div>
