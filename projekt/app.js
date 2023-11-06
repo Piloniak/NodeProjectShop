@@ -12,7 +12,7 @@ const mainRouter = require('./routes/MainRouter');
 app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
-app.set('views', __driname + "/views");
+app.set('views', __dirname + "/views");
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -30,9 +30,9 @@ app.use(session({
 
 app.use("/", mainRouter);
 
-sql1 = "CREATE DATABASE IF NOT EXISTS `users` DEFAULT CHARACTER SET utf8 COLLATE uft8_general_ci";
+sql1 = "CREATE DATABASE IF NOT EXISTS `users` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
 sql2 = 'USE `users`';
-sql3 = 'CREATE TABLE IF NOT EXISTS `users`(`id` int(10) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT `username` varchar(50) UNIQUE `password` varchar(150) `name` varchar(20) `lastname` varchar(40) `adress` varchar(100) `email` varchar(50) `phonenumber` varchar(12) ) ENGINE=InnoDB DEFAULT CHARSET=utf8';
+sql3 = 'CREATE TABLE IF NOT EXISTS `users`(`id` int(10) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, `username` varchar(50) UNIQUE, `password` varchar(150), `name` varchar(20), `lastname` varchar(40), `adress` varchar(100), `email` varchar(50), `phonenumber` varchar(12)) ENGINE=InnoDB DEFAULT CHARSET=utf8';
 
 const server = app.listen(PORT, (err) =>{
     if(err){
@@ -40,12 +40,12 @@ const server = app.listen(PORT, (err) =>{
         return;
     }
     db.query(sql1, (err, data)=>{
-        errorHandler(err);
+        if(err) errorHandler(err);    
     })
     db.query(sql2, (err, data)=>{
-        errorHandler(err);
+        if(err) errorHandler(err);
     })
     db.query(sql3, (err, data)=>{
-        errorHandler(err);
+        if(err) errorHandler(err);
     })
 })

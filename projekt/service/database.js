@@ -12,3 +12,5 @@ connection.connect((err)=>{
         errorHandler(err);
     }
 });
+
+module.exports = connection;
