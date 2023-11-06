@@ -1,0 +1,12 @@
+<div class="welcomeBox">
+    <h4>Witamy na stronie</h4><br/>
+    <p>Aby otrzymać możliwość zrobienia zakupów proszę się zalogować</p><br/>
+    <p>W przypadku braku konta można się zarejestrować</p>
+    <a href="/login">Logowanie</a>
+    <a href="/registration">Rejestracja</a>
+</div>  
+<div class="products">
+    <% Object.keys(products).forEach(function(key) {%>
+        <dt><%=key%></dt>
+        <%});%>
+</div>

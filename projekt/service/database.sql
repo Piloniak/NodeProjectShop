@@ -4,7 +4,7 @@ USE `users`;
 
 CREATE TABLE IF NOT EXISTS `users`(
     `id` int(10) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT
-    `username` varchar(50)
+    `username` varchar(50) UNIQUE
     `password` varchar(150)
     `name` varchar(20)
     `lastname` varchar(40)

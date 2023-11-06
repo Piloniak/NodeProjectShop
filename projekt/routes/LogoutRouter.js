@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const logoutRouter = express.Router();
 
-router.get('/', (req, res)=>{
+logoutRouter.get('/', (req, res)=>{
     req.session.destroy();
     res.send("Wylogowano");
 });
 
-module.exports = router;
+module.exports = logoutRouter;
