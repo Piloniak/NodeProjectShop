@@ -1,5 +1,5 @@
 const express = require('express');
-const registrationModel = require('../models/registration');
+const registrationModel = require('../../models/registration');
 
 const registrationRouter = express.Router();
 

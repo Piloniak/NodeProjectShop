@@ -6,3 +6,5 @@ const shopRouter = express.Router();
 shopRouter.get("/", (req, res) => {
     
 })
+
+module.exports = shopRouter;
