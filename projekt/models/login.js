@@ -4,17 +4,17 @@ const { inputHandler1, inputHandler2 } = require('../routes/utils/login/inputHan
 const bcrypt = require('bcrypt');
 
 function loginModel(request, response){
-    const login = request.body.login;
+    const login = request.body.username;
     const password = request.body.password;
     checkInputs(request, response, login, password);
 }
 
 function checkInputs(request, response, login, password){
-    const sql = 'SELECT * FROM users WHERE login =?';
+    const sql = "SELECT * FROM users WHERE username = ?";
 
     db.query(
         sql,
-        login,
+        [login],
         (err, data) => {
             if(err){
                 errorHandler(err);

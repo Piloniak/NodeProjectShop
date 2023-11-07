@@ -8,7 +8,7 @@ function registrationModel(req, res){
     const user = {
         login: req.body.login,
         password: req.body.password,
-        name: req.body.name,
+        name: req.body.firstname,
         lastname: req.body.lastname,
         zipcode: req.body.zipcode,
         city: req.body.city,
@@ -17,14 +17,19 @@ function registrationModel(req, res){
         email: req.body.email,
         phonenumber: req.body.phonenumber
     }
+    console.log(user);
     checkInputs(res, user)
 }
 
 function checkInputs(response, user){
-    const sql = `SELECT * FROM users WHERE login = ?`;
-    db.query(sql, user.login, (err, data)=>{
+    console.log(user);
+    const sql = `SELECT * FROM users WHERE username = ?`;
+    db.query(sql, [user.login], (err, data) => {
+        if(err){
+            errorHandler(err);
+        }
         if(data.length > 0){
-            userExistHandler(user.login, response);
+            userExistHandler(response, user.login);
         } else {
             addingUser(response, user.login, user.password, user.name, user.lastname, 
                 user.zipcode, user.city, user.street, user.homenumber, user.email, user.phonenumber);
@@ -32,18 +37,19 @@ function checkInputs(response, user){
     })
 }
 
-function addingUser(response, login, password, name, lastname, zipcode, city, street,  
+function addingUser(response, username, password, name, lastname, zipcode, city, street,  
         homenumber, email, phonenumber){
     const sql = 'INSERT INTO users SET ?';
+    const adress = city + " " + zipcode + " " + street + " " + homenumber;
     password = bcrypt.hashSync(password, 10);
     db.query(
         sql,
-        {login, password, name, lastname, zipcode, city, street, homenumber, email, phonenumber},
+        {username, password, name, lastname, adress, email, phonenumber},
         (err) => {
             if(err){
                 errorHandler(err);
             }
-            userDontExistHandler(response, login);
+            userDontExistHandler(response, username);
         }
     )
 }

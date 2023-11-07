@@ -1,0 +1,14 @@
+<header>
+    <%- include('./../partials/header.ejs', {userInfo: userInfo, pageName: pageName})%>
+</header>
+<div>
+    <% shopItems.forEach((shopItem) => {%>
+        <dt>
+            <dl>
+                <dt><%=shopItem.name%></dt>
+                <dt><%=shopItem.price%></dt>
+                <dt><%=shopItem.amount%></dt>
+            </dl>
+        </dt>
+        <%});%>
+</div>

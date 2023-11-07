@@ -6,7 +6,7 @@
     <a href="/registration">Rejestracja</a>
 </div>  
 <div class="products">
-    <% Object.keys(products).forEach(function(key) {%>
-        <dt><%=key%></dt>
+    <% products.forEach((product)=>  {%>
+        <dt><%=product.name%></dt>
         <%});%>
 </div>
