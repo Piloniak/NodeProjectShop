@@ -5,8 +5,15 @@
     <a href="/login">Logowanie</a>
     <a href="/registration">Rejestracja</a>
 </div>  
-<div class="products">
-    <% products.forEach((product)=>  {%>
-        <dt><%=product.name%></dt>
+<div class="products" style="margin: 3%; display: flex; flex-direction: row; flex-wrap: wrap;">
+    <% products.forEach((product,idx)=>  {%>
+        <div class="card" style="width: 400px; margin: 10px;">
+            <img src="/images/<%=product.name%>.png" class="card-img-top" width="400px" height="400px">
+            <div class="card-body">
+                <h5 class="card-title"><%=product.name%></h5>
+                <label class="card-text">Cena: <%=product.price%></label>
+                <label class="card-text">Dostępna ilość sztuk: <%=product.amount%></label>
+            </div>
+        </div>
         <%});%>
 </div>

@@ -1,30 +1,63 @@
-<div class="registerBox">
+<div class="registerBox" >
     <% if(msg != ""){ %>
         <h2 class="authError"><%= msg %></h2>
         <% } %>
-    <form action="/registration/auth" method="POST">
-        <label>Podaj nazwę użytkownika</label>
-        <input type="text" name="login">
-        <label>Podaj hasło użytkownika</label>
-        <input type="password" name="password">
-        <label>Podaj dane personalne</label>
-            <label>Imię</label>
-            <input type="text" name="firstname">
-            <label>Nazwisko</label>
-            <input type="text" name="lastname">
-            <label>Adres zamieszkania</label>
-                <label>Kod pocztowy</label>
-                <input type="text" name="zipcode">
-                <label>Miejscowość</label>
-                <input type="text" name="city">
-                <label>Ulica</label>
-                <input type="text" name="street">
-                <label>Numer domu/mieszkania</label>
-                <input type="text" name="homenumber">
-            <label>Adres E-mail</label>
-            <input type="email" name="email">
-            <label>Numer telefonu</label>
-            <input type="text" name="phonenumber">
-            <input type="submit">
-    </form>
+    <div class="card" style="border: 10, gray; margin: 2%;">
+        <form action="/registration/auth" method="POST" >
+        <div style="display: flex; flex-direction: row;">
+            <div class="col" style="width: 25%;">
+                <h3>Podaj dane użytkownika</h3>
+                <div class="row">
+                    <label class="form-label">Podaj nazwę użytkownika</label>
+                    <input type="text" name="login" class="form-control">
+                </div>
+                <div class="row">
+                    <label class="form-label">Podaj hasło użytkownika</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+            </div>
+            <br/>
+            <div class="col" style="width: 25%;">
+                <h3>Podaj dane personalne</h3>
+                <div class="row">
+                    <label class="form-label">Imię</label>
+                    <input type="text" name="firstname" class="form-control">
+                </div>
+                <div class="row">
+                    <label class="form-label">Nazwisko</label>
+                    <input type="text" name="lastname" class="form-control">
+                </div>
+                <div class="row">
+                    <label class="form-label">Adres E-mail</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div class="row">
+                    <label class="form-label">Numer telefonu</label>
+                    <input type="text" name="phonenumber" class="form-control">
+                </div>            
+            </div>
+                <div class="col" style="width: 25%;">
+                    <h4>Adres zamieszkania</h4>
+                    <div class="row" >
+                        <label class="form-label">Kod pocztowy</label>
+                        <input type="text" name="zipcode" class="form-control">
+                    </div>
+                    <div class="row">
+                        <label class="form-label">Miejscowość</label>
+                        <input type="text" name="city" class="form-control">
+                    </div>
+                    <div class="row">
+                        <label class="form-label">Ulica</label>
+                        <input type="text" name="street" class="form-control">
+                    </div>
+                    <div class="row">
+                        <label class="form-label">Numer domu/mieszkania</label>
+                        <input type="text" name="homenumber" class="form-control">
+                    </div>
+                </div>
+                <br/>
+            </div>
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
 </div>

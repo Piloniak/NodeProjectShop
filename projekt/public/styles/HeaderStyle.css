@@ -1,0 +1,23 @@
+.header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: green;
+    color: black;
+    
+  }
+  .header > * {
+      display:block;
+      margin-left: auto;
+      margin-top: 8%;
+      margin-bottom: 8%;
+      margin-right: auto;
+      align-items: center;
+      width: 100%;
+  }
+  
+  h1{
+    text-align: center;
+  }
