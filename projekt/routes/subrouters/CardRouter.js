@@ -11,22 +11,21 @@ CardRouter.post('/', (req, res) => {
             let cartProducts = [];
             if (req.session.products != undefined) {
                 cartProducts = JSON.parse(req.session.products)
-                const filtered = cartProducts.filter(e => e.productName === product.productName)
+                const filtered = cartProducts.filter(e => e.name === product.name)
 
                 if (filtered.length > 0) {
                     console.log("filtered length >0")
                     res.send("filtered length >0");
+                    console.log(req.session.products)
                 } else {
 
                     cartProducts.push(product);
                     console.log(cartProducts);
                     req.session.products = JSON.stringify(cartProducts)
                     console.log(req.session.products)
-                    res.send('ok');
-                    // dodaja sie tylko 2 produkty
+                    res.send('ok');        
                 }
-
-                // console.log(req.session.products);
+               
             } else {
                 cartProducts = JSON.stringify([product])
                 console.log(cartProducts)
@@ -37,6 +36,5 @@ CardRouter.post('/', (req, res) => {
         }
     )
 
-    // dodac do sesji
 })
 module.exports = CardRouter;

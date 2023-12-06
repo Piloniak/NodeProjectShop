@@ -2,8 +2,16 @@ const express = require('express');
 const productsModel = require('../../models/products');
 const BasketRouter = express.Router();
 
-BasketRouter.post('/', (req, res) =>{
-    const products = productsModel();
+BasketRouter.get('/', (req, res) =>{
+    if(req.session.logged_in){
+        res.render('./layout/basket', {
+            basket: JSON.parse(req.session.products),
+            userInfo: req.session.userInfo,
+            pageName: "Koszyk"
+        });
+    }else{
+        res.redirect('/login');
+    }
+});
 
-    const productId = req.body.chosenProduct;
-})
+module.exports = BasketRouter;

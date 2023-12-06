@@ -7,12 +7,16 @@ const logoutRouter = require('./subrouters/LogoutRouter');
 const shopRouter = require('./subrouters/ShopRouter');
 const productsArray = require('../public/data/products.json')
 const cardRouter = require('./subrouters/CardRouter');
+const basketRouter = require('./subrouters/BasketRouter');
+const choiceRouter = require('./subrouters/ChoiceRouter')
 
 mainRouter.use("/registration", registrationRouter);
 mainRouter.use("/login", loginRouter);
 mainRouter.use("/logout", logoutRouter);
 mainRouter.use("/shop", shopRouter);
-mainRouter.use("/card", cardRouter)
+mainRouter.use("/card", cardRouter);
+mainRouter.use("/basket", basketRouter);
+mainRouter.use("/choice", choiceRouter);
 
 
 mainRouter.get("/", (req, res) => {
@@ -29,7 +33,7 @@ mainRouter.get("/", (req, res) => {
 
     };
     if(req.session.logged_in==undefined){
-        req.session.logged = false;
+        req.session.logged_in = false;
     }
     res.render("./layout/mainPage", {
         userInfo: user,

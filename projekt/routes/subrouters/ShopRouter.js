@@ -7,13 +7,13 @@ const shopRouter = express.Router();
 
 shopRouter.get("/", (req, res) => {
     const products = productsArray;
-    if(!req.session.logged_in){
+    if(req.session.logged_in==undefined||req.session.logged_in == false){
         res.redirect('/')
     }else{
         res.render("./layout/shop", {
             shopItems: products,
             pageName: "Sklep",
-            userInfo: req.session.user,
+            userInfo: req.session.userInfo,
             req: req
         })
     }
